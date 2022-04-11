@@ -1,5 +1,5 @@
 var date = new Date()
-let display_date = "Date:" + date.toLocaleDateString()
+let display_date = "Fecha:" + date.toLocaleDateString()
 
 let predicted_emotion;
 
@@ -26,15 +26,15 @@ $(function () {
                 predicted_emotion = result.data.predicted_emotion
                 emotion_img_url=result.data.predicted_emotion_img_url
                 
-                //Send the predicted emotion and image url to HTML
+                //Enviar la emoción predecida y el URL de la imagen a HTML.
                 $("#prediction").html(predicted_emotion)
                 $("#emo_img_url").attr('src', emotion_img_url);
 
-                //Set the display 
+                //Establcer la pantalla.
                 $('#prediction').css("display", "");
                 $('#emo_img_url').css("display", "");
 
-               //Enable the Save Button
+               //Activar el botón de guardar.
                 $('#save_button').prop('disabled', false);
             },
             error: function (result) {
@@ -56,7 +56,7 @@ $(function () {
             dataType: "json",
             contentType: 'application/json',
             success: function () {
-                alert("Your entry has been saved successfully!")
+                alert("¡Tu entrada se ha guardado exitosamente!")
                 window.location.reload()
             },
             error: function (result) {
@@ -73,7 +73,7 @@ function displayBot() {
     $('.chatbox__button').click(function () {
         $('.chatbox__chat').toggle()
     });
-    //Start Conversation with Bot
+    //Iniciar la conversación con el Bot.
     askBot()
 }
 
@@ -86,7 +86,7 @@ function askBot() {
            
             $("#chat_messages").append('<div class="user__messages">' + user_bot_input_text + ' </div>')
             
-            //Clear the text input box after sending message
+            //Vaciar la entrada de texto después de enviar el mensaje.
             $("#bot_input_text").val('');
 
             let chat_input_data = {
@@ -114,9 +114,9 @@ function askBot() {
 
     })
     $('#bot_input_text').keypress(function(e){
-        //If Enter key(key code is 13) pressed
+        //Si se presiona la tecla entener (el código de la tecla es 13),
         if(e.which == 13){         
-            $('#send_button').click(); //Trigger Send Button Click Event
+            $('#send_button').click(); //Desencadenar el evento de clic del botón enviar.
         }
     });
 }
