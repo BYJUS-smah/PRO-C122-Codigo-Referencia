@@ -30,7 +30,7 @@ $(function () {
                 $("#prediction").html(predicted_emotion)
                 $("#emo_img_url").attr('src', emotion_img_url);
 
-                //Establcer la pantalla.
+                //Establecer la pantalla.
                 $('#prediction').css("display", "");
                 $('#emo_img_url').css("display", "");
 
